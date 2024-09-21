@@ -22,6 +22,8 @@ function App() {
   let determineCellColor = true
 
   for (let key in newCells) { 
+
+    let row = 8
     
     for (let i = 0; i < 8; i++) {
 
@@ -29,19 +31,25 @@ function App() {
       
       determineCellColor ? 
         <BoardCell
-            backGroundColor={'black'}
-            color={'white'}
             nombre={`${key}${i+1}`}
             key = {`${key}${i+1}`}
+            style ={{
+              backgroundColor: "black",
+              color: "white",
+              gridRow: row
+            }}
         />
         :
         <BoardCell
-            backGroundColor={'white'}
             nombre={`${key}${i+1}`}
             key = {`${key}${i+1}`}
+            style ={{
+              gridRow: row
+            }}
         />
 
         determineCellColor = !determineCellColor
+        row--
     }
     determineCellColor = !determineCellColor
   }
@@ -53,7 +61,7 @@ function App() {
   return (
     <>
 
-      <button onClick={() => {console.log(Object.values(cells))}}></button>
+      <button onClick={() => {console.log()}}></button>
 
       <main className='board'>
 

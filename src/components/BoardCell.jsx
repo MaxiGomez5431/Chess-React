@@ -1,6 +1,6 @@
 import './styles/BoardCell.css'
 
-export function BoardCell({backGroundColor, color, nombre}) {
+export function BoardCell({nombre, style}) {
   
 
 
@@ -8,7 +8,7 @@ export function BoardCell({backGroundColor, color, nombre}) {
     <>
       <div 
         className="cell"
-        style={ {backgroundColor: backGroundColor, color: color}}
+        style={style}
       >
         {nombre}
 
