@@ -1,11 +1,14 @@
 import './styles/BoardCell.css'
+import { useDroppable } from '@dnd-kit/core';
 
-export function BoardCell({nombre, style}) {
+export function BoardCell({nombre, id, style, children}) {
   
   const { setNodeRef } = useDroppable({
-    id: 'droppable',
+    id: id,
+    data: {id, nombre}
   });
   
+
   return (
     <>
       <div 
@@ -14,6 +17,7 @@ export function BoardCell({nombre, style}) {
         ref={setNodeRef}
       >
         {nombre}
+        {children}
       </div>
     </>
   )

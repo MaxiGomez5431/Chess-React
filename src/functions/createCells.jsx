@@ -1,17 +1,8 @@
 import { BoardCell } from '../components/BoardCell'
 
 export const createCells = () => {
-  const cells = {
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-    5: [],
-    6: [],
-    7: [],
-    8: []
-  }
-
+  const cells = [[],[],[],[],[],[],[],[]]
+  
   const columns = ["A","B","C","D","E","F","G","H"]
   let row = 8 //SE PUEDE IMPLEMETAR QUE LADO JUEGA con operador ternario y una prop
   let determineCellColor = false
@@ -25,7 +16,8 @@ export const createCells = () => {
       determineCellColor ? 
         <BoardCell
             nombre={`${columns[arrIndx]}${row}`}
-            key = {`${columns[arrIndx]}${row}`}
+            key = {`${arrIndx}${row}`}
+            id = {`${arrIndx}${key}`}
             style ={{
               backgroundColor: "black",
               color: "white"
@@ -34,7 +26,8 @@ export const createCells = () => {
         :
         <BoardCell
             nombre={`${columns[arrIndx]}${row}`}
-            key = {`${columns[arrIndx]}${row}`}
+            key = {`${arrIndx}${row}`}
+            id = {`${arrIndx}${key}`}
         />
 
         determineCellColor = !determineCellColor
