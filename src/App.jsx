@@ -4,7 +4,10 @@ import {createCells} from './functions/createCells'
 import {replaceCell} from './functions/replaceCell'
 import { Pawn } from './components/pieces/Pawn'
 import {DndContext} from '@dnd-kit/core'
-import { BoardCell } from './components/BoardCell'
+ //eliminar imports inutiles
+
+
+//mejorar legibilidad del codigo, sobre todo createCells y replaceCell, no se entiende nada de donde vienen los indices 
 
 function App() {
   
@@ -15,7 +18,9 @@ function App() {
   }, [])
 
   const handleDragOver = (event) => {
-    replaceCell(cells, setCells, event)
+    // if (pieceCanMove(event)){ 
+      replaceCell(cells, setCells, event)
+    // }
   }
 
   return (

@@ -4,35 +4,27 @@ export const createCells = () => {
   const cells = [[],[],[],[],[],[],[],[]]
   
   const columns = ["A","B","C","D","E","F","G","H"]
-  let row = 8 //SE PUEDE IMPLEMETAR QUE LADO JUEGA con operador ternario y una prop
+  let nameRow = 8 //SE PUEDE IMPLEMETAR QUE LADO JUEGA con operador ternario y una prop
   let determineCellColor = false
 
-  for (let key in cells) { 
+  for (let arrRow in cells) { 
     
-    for (let arrIndx = 0; arrIndx < 8; arrIndx++) {
+    for (let arrPosition = 0; arrPosition < 8; arrPosition++) {
 
-      cells[key][arrIndx] = 
+      let style = determineCellColor ? {backgroundColor: "black", color: "white"} : {backgroundColor: "white", color: "black"}
+
+      cells[arrRow][arrPosition] = 
       
-      determineCellColor ? 
         <BoardCell
-            nombre={`${columns[arrIndx]}${row}`}
-            key = {`${arrIndx}${row}`}
-            id = {`${arrIndx}${key}`}
-            style ={{
-              backgroundColor: "black",
-              color: "white"
-            }}
-        />
-        :
-        <BoardCell
-            nombre={`${columns[arrIndx]}${row}`}
-            key = {`${arrIndx}${row}`}
-            id = {`${arrIndx}${key}`}
+            cellName={`${columns[arrPosition]}${nameRow}`}
+            key = {`${arrPosition}${arrRow}`}
+            id = {`${arrPosition}${arrRow}`}
+            style = {style}
         />
 
         determineCellColor = !determineCellColor
     }
-    row--
+    nameRow--
     determineCellColor = !determineCellColor
   }
 

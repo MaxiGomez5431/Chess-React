@@ -4,6 +4,7 @@ import { useDraggable } from '@dnd-kit/core';
 export function Pawn({color}) {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
     id: 'pawn',
+    data: {type: 'pawn'}
   });
 
   const style = {
